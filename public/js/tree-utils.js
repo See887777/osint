@@ -35,9 +35,9 @@
     toggle: toggle,
   };
 
-  globalScope.arfTreeUtils = api;
-
   if (typeof module !== "undefined" && module.exports) {
     module.exports = api;
+  } else {
+    globalScope.arfTreeUtils = api;
   }
 })(typeof globalThis !== "undefined" ? globalThis : this);
