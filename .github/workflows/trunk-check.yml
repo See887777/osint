@@ -5,7 +5,7 @@ on:
     branches: [main]
     tags: [v*.*.*]
   pull_request:
-    types: [opened, synchronize]
+    types: [opened, synchronize, reopened]
   workflow_dispatch: {}
 
 concurrency:
@@ -15,6 +15,7 @@ concurrency:
 jobs:
   check:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     permissions:
       checks: write # For trunk to post annotations
       contents: read # For repo checkout

@@ -4,7 +4,19 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    labels:
+      - "dependencies"
+      - "npm"
+    commit-message:
+      prefix: "chore(deps)"
+    open-pull-requests-limit: 5
   - package-ecosystem: "github-actions"
     directory: ".github/workflows"
     schedule:
       interval: "daily"
+    labels:
+      - "dependencies"
+      - "github-actions"
+    commit-message:
+      prefix: "chore(ci)"
+    open-pull-requests-limit: 5

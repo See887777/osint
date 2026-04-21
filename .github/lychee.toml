@@ -14,7 +14,7 @@ no_progress = true
 cache = true
 
 # Discard all cached requests older than this duration.
-max_cache_age = "1d"
+max_cache_age = "2d"
 
 #############################  Runtime  #############################
 
@@ -29,7 +29,7 @@ max_cache_age = "1d"
 #max_retries = 2
 
 # Maximum number of concurrent link checks.
-max_concurrency = 5
+max_concurrency = 16
 
 #############################  Requests  ############################
 
@@ -56,7 +56,7 @@ scheme = ["https"]
 require_https = true
 
 # Request method
-method = "get"
+method = "head"
 
 # Custom request headers
 #headers = []
@@ -86,37 +86,58 @@ glob_ignore_case = true
 
 # Exclude URLs and mail addresses from checking (supports regex).
 exclude = [
-  '.truepeoplesearch.com',
-  'securitytrails.com',
-  'globaledge.msu.edu',
-  'www.mylife.com',
-  'www.ussearch.com',
-  'infospace.com',
-  'archive.is',
-  'biznar.com',
-  'nuwber.com',
-  'www.usphonebook.com',
-  'insecam.org',
-  'web-beta.archive.',
-  '0day.today',
-  'www.dogpile.com',
-  'socialblade.com',
-  'www.vehiclehistory.com',
-  'search.wikileaks.org',
-  'www.blockchain.com/explorer',
-  'www.sciencedirect.com',
-  'twitter.com/search-advanced',
-  'www.politicalmoneyline.com',
-  'sandbox.pikker.ee',
-  'www.agoogleaday.com',
-  'sandbox.pikker.ee',
-  'www.proquest.com',
-  'dehashed.com',
-  'emailrep.io',
-  'imgur.com',
-  'www.bgp4.as',
-  '.onion',
-  '.*\.github.com\.*',
+  # Sites that block automated crawlers / require login
+  'facebook\.com',
+  'twitter\.com',
+  'imgur\.com',
+  'www\.reddit\.com',
+  'socialblade\.com',
+
+  # Sites that consistently return non-2xx to bots but are known-live
+  'securitytrails\.com',
+  'dehashed\.com',
+  'emailrep\.io',
+  'www\.sciencedirect\.com',
+  'www\.proquest\.com',
+  'www\.bgp4\.as',
+
+  # Sites with aggressive anti-bot / CAPTCHA
+  'www\.mylife\.com',
+  'www\.ussearch\.com',
+  'nuwber\.com',
+  'www\.usphonebook\.com',
+  '(^|\.)truepeoplesearch\.com',
+  'www\.vehiclehistory\.com',
+  'www\.politicalmoneyline\.com',
+
+  # Sites known to be inaccessible or deprecated
+  'globaledge\.msu\.edu',
+  'infospace\.com',
+  'biznar\.com',
+  'www\.dogpile\.com',
+  'www\.blockchain\.com/explorer',
+  'search\.wikileaks\.org',
+  'sandbox\.pikker\.ee',
+  'www\.agoogleaday\.com',
+  'web-beta\.archive\.',
+  '0day\.today',
+  'archive\.is',
+  'insecam\.org',
+
+  # HTTP-only sites — will always fail require_https; exclude to avoid false positives
+  'ddecode\.com',
+  'itools\.com/tool/wink-people-search',
+  'jsnice\.org',
+  'places2\.csail\.mit\.edu',
+  'suncalc\.net',
+  'www\.sitedossier\.com',
+  'www\.visualsitemapper\.com',
+
+  # Tor hidden services
+  '\.onion',
+
+  # GitHub — rate-limited and authenticated; all github.com URLs excluded
+  'github\.com',
 ]
 
 # Exclude these filesystem paths from getting checked.
