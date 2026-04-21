@@ -6,7 +6,7 @@ const {
   normalizeNodeDepths,
   initializeRoot,
   toggle,
-} = require("../public/js/arf");
+} = require("../public/js/tree-utils");
 
 test("collapseNode collapses children recursively", () => {
   const tree = {
@@ -22,12 +22,12 @@ test("collapseNode collapses children recursively", () => {
 
   collapseNode(tree);
 
-  assert.equal(tree.children, null);
-  assert.equal(Array.isArray(tree._children), true);
-  assert.equal(tree._children[0].children, null);
-  assert.equal(Array.isArray(tree._children[0]._children), true);
-  assert.equal(tree._children[0]._children[0].children, null);
-  assert.equal(Array.isArray(tree._children[0]._children[0]._children), true);
+  assert.strictEqual(tree.children, null);
+  assert.ok(Array.isArray(tree._children));
+  assert.strictEqual(tree._children[0].children, null);
+  assert.ok(Array.isArray(tree._children[0]._children));
+  assert.strictEqual(tree._children[0]._children[0].children, null);
+  assert.ok(Array.isArray(tree._children[0]._children[0]._children));
 });
 
 test("collapseNode leaves nodes without children unchanged", () => {
@@ -54,8 +54,17 @@ test("initializeRoot sets x0 and y0", () => {
 
   initializeRoot(root, 800);
 
-  assert.equal(root.x0, 400);
-  assert.equal(root.y0, 0);
+  assert.strictEqual(root.x0, 400);
+  assert.strictEqual(root.y0, 0);
+});
+
+test("initializeRoot computes midpoint for different heights", () => {
+  const root = { name: "root" };
+
+  initializeRoot(root, 650);
+
+  assert.strictEqual(root.x0, 325);
+  assert.strictEqual(root.y0, 0);
 });
 
 test("toggle collapses node with children", () => {
@@ -65,7 +74,7 @@ test("toggle collapses node with children", () => {
 
   toggle(node);
 
-  assert.equal(node.children, null);
+  assert.strictEqual(node.children, null);
   assert.deepEqual(node._children, [{ name: "child" }]);
 });
 
@@ -77,5 +86,5 @@ test("toggle expands node with hidden children", () => {
   toggle(node);
 
   assert.deepEqual(node.children, [{ name: "child" }]);
-  assert.equal(node._children, null);
+  assert.strictEqual(node._children, null);
 });

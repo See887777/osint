@@ -1,22 +1,3 @@
-function collapseNode(d) {
-  if (d.children) {
-    d._children = d.children;
-    d._children.forEach(collapseNode);
-    d.children = null;
-  }
-}
-
-function normalizeNodeDepths(nodes, spacing) {
-  nodes.forEach(function (d) {
-    d.y = d.depth * spacing;
-  });
-}
-
-function initializeRoot(rootNode, treeHeight) {
-  rootNode.x0 = treeHeight / 2;
-  rootNode.y0 = 0;
-}
-
 function update(source) {
   // var duration = d3.event && d3.event.altKey ? 5000 : 500;
 
@@ -147,18 +128,19 @@ function update(source) {
   });
 }
 
-// Toggle children.
-function toggle(d) {
-  if (d.children) {
-    d._children = d.children;
-    d.children = null;
-  } else {
-    d.children = d._children;
-    d._children = null;
-  }
-}
-
 if (typeof d3 !== "undefined") {
+  var treeUtils = typeof arfTreeUtils !== "undefined" ? arfTreeUtils : null;
+  if (!treeUtils) {
+    throw new Error(
+      "arfTreeUtils must be loaded before arf.js. Ensure tree-utils.js script tag appears before arf.js in your HTML.",
+    );
+  }
+
+  var collapseNode = treeUtils.collapseNode;
+  var normalizeNodeDepths = treeUtils.normalizeNodeDepths;
+  var initializeRoot = treeUtils.initializeRoot;
+  var toggle = treeUtils.toggle;
+
   var margin = [20, 120, 20, 140],
     width = 1280 - margin[1] - margin[3],
     height = 800 - margin[0] - margin[2],
@@ -193,13 +175,6 @@ if (typeof d3 !== "undefined") {
     root.children.forEach(collapseNode);
     update(root);
   });
-}
-
-if (typeof module !== "undefined" && module.exports) {
-  module.exports = {
-    collapseNode: collapseNode,
-    normalizeNodeDepths: normalizeNodeDepths,
-    initializeRoot: initializeRoot,
-    toggle: toggle,
-  };
+} else if (typeof window !== "undefined") {
+  console.error("d3 must be loaded before arf.js");
 }
