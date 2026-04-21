@@ -48,6 +48,16 @@
               "name": "Instant Username Search",
               "type": "url",
               "url": "https://instantusername.com/"
+            },
+            {
+              "name": "Sherlock (T)",
+              "type": "url",
+              "url": "https://github.com/sherlock-project/sherlock"
+            },
+            {
+              "name": "Maigret (T)",
+              "type": "url",
+              "url": "https://github.com/soxoj/maigret"
             }
           ],
           "name": "Username Search Engines",
@@ -141,6 +151,26 @@
               "name": "MailsHunt",
               "type": "url",
               "url": "https://mailshunt.com/"
+            },
+            {
+              "name": "Holehe (T)",
+              "type": "url",
+              "url": "https://github.com/megadose/holehe"
+            },
+            {
+              "name": "GHunt (T)",
+              "type": "url",
+              "url": "https://github.com/mxrch/GHunt"
+            },
+            {
+              "name": "Epieos",
+              "type": "url",
+              "url": "https://epieos.com/"
+            },
+            {
+              "name": "OSINT Industries (R)",
+              "type": "url",
+              "url": "https://osint.industries/"
             }
           ],
           "name": "Email Search",
@@ -226,14 +256,14 @@
               "url": "https://intelx.io/"
             },
             {
-              "name": "Dehashed",
-              "type": "url",
-              "url": "https://dehashed.com/"
-            },
-            {
               "name": "Ashley Madison Emails",
               "type": "url",
               "url": "https://ashley.cynic.al/"
+            },
+            {
+              "name": "LeakCheck (R)",
+              "type": "url",
+              "url": "https://leakcheck.io/"
             }
           ],
           "name": "Breach Data",
@@ -413,6 +443,21 @@
               "name": "AltDNS (T)",
               "type": "url",
               "url": "https://github.com/infosec-au/altdns"
+            },
+            {
+              "name": "Subfinder (T)",
+              "type": "url",
+              "url": "https://github.com/projectdiscovery/subfinder"
+            },
+            {
+              "name": "Amass (T)",
+              "type": "url",
+              "url": "https://github.com/owasp-amass/amass"
+            },
+            {
+              "name": "Chaos - ProjectDiscovery",
+              "type": "url",
+              "url": "https://chaos.projectdiscovery.io/"
             }
           ],
           "name": "Subdomains",
@@ -480,6 +525,11 @@
               "name": "certgraph (T)",
               "type": "url",
               "url": "https://github.com/lanrat/certgraph"
+            },
+            {
+              "name": "Cert Spotter",
+              "type": "url",
+              "url": "https://sslmate.com/certspotter/"
             }
           ],
           "name": "Certificate Search",
@@ -511,6 +561,11 @@
               "name": "Deteque (R)",
               "type": "url",
               "url": "https://www.deteque.com/"
+            },
+            {
+              "name": "CIRCL Passive DNS",
+              "type": "url",
+              "url": "https://www.circl.lu/services/passive-dns/"
             }
           ],
           "name": "PassiveDNS",
@@ -727,19 +782,9 @@
               "url": "https://tools.seobook.com/general/keyword-density/"
             },
             {
-              "name": "Alexa Site Statistics",
-              "type": "url",
-              "url": "https://www.alexa.com/siteinfo"
-            },
-            {
               "name": "Cisco Umbrella Popularity List",
               "type": "url",
               "url": "https://s3-us-west-1.amazonaws.com/umbrella-static/index.html"
-            },
-            {
-              "name": "Alexa Top 500 Global Sites",
-              "type": "url",
-              "url": "https://www.alexa.com/topsites"
             },
             {
               "name": "W3bin.com",
@@ -790,6 +835,11 @@
               "name": "WhatWeb",
               "type": "url",
               "url": "https://github.com/urbanadventurer/WhatWeb"
+            },
+            {
+              "name": "Tranco List",
+              "type": "url",
+              "url": "https://tranco-list.eu/"
             }
           ],
           "name": "Analytics",
@@ -1016,6 +1066,11 @@
               "name": "ipTRACKERonline",
               "type": "url",
               "url": "https://www.iptrackeronline.com/"
+            },
+            {
+              "name": "ipinfo.io",
+              "type": "url",
+              "url": "https://ipinfo.io/"
             }
           ],
           "name": "Geolocation",
@@ -1062,6 +1117,16 @@
               "name": "Masscan (T)",
               "type": "url",
               "url": "https://github.com/robertdavidgraham/masscan"
+            },
+            {
+              "name": "GreyNoise",
+              "type": "url",
+              "url": "https://www.greynoise.io/"
+            },
+            {
+              "name": "Criminal IP",
+              "type": "url",
+              "url": "https://www.criminalip.io/"
             }
           ],
           "name": "Host / Port Discovery",
@@ -1156,6 +1221,11 @@
               "name": "LiveIPMap IP Check",
               "type": "url",
               "url": "https://www.liveipmap.com/"
+            },
+            {
+              "name": "IPQS IP Quality Score",
+              "type": "url",
+              "url": "https://www.ipqualityscore.com/"
             }
           ],
           "name": "Reputation",
@@ -1343,11 +1413,6 @@
                   "url": "https://7photos.net/"
                 },
                 {
-                  "name": "Panoramio",
-                  "type": "url",
-                  "url": "https://www.panoramio.com/"
-                },
-                {
                   "name": "Current Location",
                   "type": "url",
                   "url": "https://current-location.com/"
@@ -1391,6 +1456,16 @@
                   "name": "SauceNAO",
                   "type": "url",
                   "url": "https://saucenao.com/"
+                },
+                {
+                  "name": "PimEyes (R)",
+                  "type": "url",
+                  "url": "https://pimeyes.com/en"
+                },
+                {
+                  "name": "FaceCheck.ID",
+                  "type": "url",
+                  "url": "https://facecheck.id/"
                 }
               ],
               "name": "Search",
@@ -1458,6 +1533,11 @@
                   "name": "GeoSetter",
                   "type": "url",
                   "url": "https://www.geosetter.de/en/"
+                },
+                {
+                  "name": "Pic2Map",
+                  "type": "url",
+                  "url": "https://www.pic2map.com/"
                 }
               ],
               "name": "Metadata",
@@ -1613,7 +1693,7 @@
                 {
                   "name": "YouTube Metadata",
                   "type": "url",
-                  "url": "https://www.amnestyusa.org/citizenevidence/"
+                  "url": "https://mattw.io/youtube-metadata/"
                 },
                 {
                   "name": "TubeChop",
@@ -1634,6 +1714,11 @@
                   "name": "yasiv-youtube",
                   "type": "url",
                   "url": "https://yasiv.com/youtube"
+                },
+                {
+                  "name": "InVID / WeVerify (T)",
+                  "type": "url",
+                  "url": "https://weverify.eu/verification-plugin/"
                 }
               ],
               "name": "Analyze / Record",
@@ -1824,7 +1909,7 @@
                 {
                   "name": "Twitter Advanced Search",
                   "type": "url",
-                  "url": "https://twitter.com/search-advanced"
+                  "url": "https://x.com/search-advanced"
                 },
                 {
                   "name": "Twitterfall",
@@ -2101,6 +2186,11 @@
               "name": "Reddit Comment History",
               "type": "url",
               "url": "https://roadtolarissa.com/javascript/reddit-comment-visualizer/"
+            },
+            {
+              "name": "Reveddit",
+              "type": "url",
+              "url": "https://www.reveddit.com/"
             }
           ],
           "name": "Reddit",
@@ -2168,6 +2258,11 @@
               "name": "Google CSE for Telegram links",
               "type": "url",
               "url": "https://cse.google.com/cse?cx=006368593537057042503:efxu7xprihg"
+            },
+            {
+              "name": "TGStat",
+              "type": "url",
+              "url": "https://tgstat.com/"
             }
           ],
           "name": "Search",
@@ -2694,6 +2789,11 @@
               "name": "Federal Inmate Locator",
               "type": "url",
               "url": "https://www.bop.gov/inmateloc/"
+            },
+            {
+              "name": "CourtListener",
+              "type": "url",
+              "url": "https://www.courtlistener.com/"
             }
           ],
           "name": "Court / Criminal Records",
@@ -2710,6 +2810,11 @@
               "name": "Gov Data Canada",
               "type": "url",
               "url": "https://govdataca.com/"
+            },
+            {
+              "name": "GovInfo",
+              "type": "url",
+              "url": "https://www.govinfo.gov/"
             }
           ],
           "name": "Government Records",
@@ -2836,6 +2941,11 @@
           ],
           "name": "Political Records",
           "type": "folder"
+        },
+        {
+          "name": "OpenSanctions",
+          "type": "url",
+          "url": "https://www.opensanctions.org/"
         },
         {
           "name": "Public Records?",
@@ -3036,6 +3146,16 @@
               "name": "Crunchbase",
               "type": "url",
               "url": "https://www.crunchbase.com/#/home/index"
+            },
+            {
+              "name": "OpenOwnership",
+              "type": "url",
+              "url": "https://www.openownership.org/"
+            },
+            {
+              "name": "ICIJ Offshore Leaks",
+              "type": "url",
+              "url": "https://offshoreleaks.icij.org/"
             }
           ],
           "name": "Company Profiles",
@@ -3120,6 +3240,16 @@
               "name": "ADS-B Exchange",
               "type": "url",
               "url": "https://www.adsbexchange.com/"
+            },
+            {
+              "name": "OpenSky Network",
+              "type": "url",
+              "url": "https://opensky-network.org/"
+            },
+            {
+              "name": "Planefinder",
+              "type": "url",
+              "url": "https://planefinder.net/"
             }
           ],
           "name": "Air Traffic Records",
@@ -3479,6 +3609,16 @@
               "name": "Hulbee",
               "type": "url",
               "url": "https://hulbee.com/"
+            },
+            {
+              "name": "Brave Search",
+              "type": "url",
+              "url": "https://search.brave.com/"
+            },
+            {
+              "name": "Marginalia Search",
+              "type": "url",
+              "url": "https://search.marginalia.nu/"
             }
           ],
           "name": "General Search",
@@ -4426,6 +4566,11 @@
               "name": "Orbit (T)",
               "type": "url",
               "url": "https://github.com/s0md3v/Orbit"
+            },
+            {
+              "name": "OXT.me",
+              "type": "url",
+              "url": "https://oxt.me/"
             }
           ],
           "name": "Bitcoin",
@@ -4442,6 +4587,11 @@
               "name": "Etherscan",
               "type": "url",
               "url": "https://etherscan.io/"
+            },
+            {
+              "name": "Ethplorer",
+              "type": "url",
+              "url": "https://ethplorer.io/"
             }
           ],
           "name": "Ethereum",
@@ -4461,6 +4611,17 @@
             }
           ],
           "name": "Monero",
+          "type": "folder"
+        },
+        {
+          "children": [
+            {
+              "name": "Solana Explorer",
+              "type": "url",
+              "url": "https://explorer.solana.com/"
+            }
+          ],
+          "name": "Solana",
           "type": "folder"
         }
       ],
@@ -5115,6 +5276,16 @@
               "name": "PhishStats",
               "type": "url",
               "url": "https://phishstats.info/"
+            },
+            {
+              "name": "PhishTank",
+              "type": "url",
+              "url": "https://www.phishtank.com/"
+            },
+            {
+              "name": "URLhaus",
+              "type": "url",
+              "url": "https://urlhaus.abuse.ch/"
             }
           ],
           "name": "Phishing",
@@ -5156,6 +5327,11 @@
               "name": "ThreatIngestor (T)",
               "type": "url",
               "url": "https://github.com/InQuest/ThreatIngestor"
+            },
+            {
+              "name": "ThreatFox",
+              "type": "url",
+              "url": "https://threatfox.abuse.ch/"
             }
           ],
           "name": "IOC Tools",
@@ -5226,6 +5402,17 @@
           "name": "Mr.Looquer IOC Feed - 1st Dual Stack Threat Feed",
           "type": "url",
           "url": "https://iocfeed.mrlooquer.com"
+        },
+        {
+          "children": [
+            {
+              "name": "MalwareBazaar",
+              "type": "url",
+              "url": "https://bazaar.abuse.ch/"
+            }
+          ],
+          "name": "Malware Samples",
+          "type": "folder"
         }
       ],
       "name": "Threat Intelligence",
@@ -5375,6 +5562,11 @@
                   "name": "Browserscope",
                   "type": "url",
                   "url": "https://www.browserscope.org/"
+                },
+                {
+                  "name": "Cover Your Tracks (EFF)",
+                  "type": "url",
+                  "url": "https://coveryourtracks.eff.org/"
                 }
               ],
               "name": "Browser Tests",
@@ -5578,6 +5770,11 @@
               "name": "GeoGuesser",
               "type": "url",
               "url": "https://geoguessr.com/"
+            },
+            {
+              "name": "Trace Labs OSINT CTF",
+              "type": "url",
+              "url": "https://www.tracelabs.org/initiatives/search-party"
             }
           ],
           "name": "Games",
@@ -5597,6 +5794,16 @@
           "name": "Smart Questions",
           "type": "url",
           "url": "https://www.catb.org/esr/faqs/smart-questions.html"
+        },
+        {
+          "name": "Bellingcat How-To Guides",
+          "type": "url",
+          "url": "https://www.bellingcat.com/category/resources/how-tos/"
+        },
+        {
+          "name": "OSINT Curious",
+          "type": "url",
+          "url": "https://osintcurio.us/"
         }
       ],
       "name": "Training",
