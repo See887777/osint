@@ -176,5 +176,5 @@ if (typeof d3 !== "undefined") {
     update(root);
   });
 } else if (typeof window !== "undefined") {
-  console.error("Both d3 and tree-utils.js must be loaded before arf.js");
+  console.error("d3 must be loaded before arf.js");
 }
