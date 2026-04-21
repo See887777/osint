@@ -106,7 +106,7 @@ exclude = [
   'www\.ussearch\.com',
   'nuwber\.com',
   'www\.usphonebook\.com',
-  '.truepeoplesearch\.com',
+  '(^|\.)truepeoplesearch\.com',
   'www\.vehiclehistory\.com',
   'www\.politicalmoneyline\.com',
 
