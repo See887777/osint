@@ -3,6 +3,7 @@
 package-lock.json
 public/js/vendor
 node_modules
+dist
 .yarn/*
 !.yarn/cache
 !.yarn/patches

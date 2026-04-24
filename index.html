@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon/favicon.ico" />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@6.x/css/all.min.css"
+    />
+    <link type="text/css" rel="stylesheet" href="/src/style.css" />
+    <title>OSINT Framework</title>
+  </head>
+
+  <body>
+    <div id="search-container">
+      <input type="text" id="search-input" placeholder="Search for tools..." />
+      <button id="search-btn"><i class="fas fa-search"></i></button>
+    </div>
+
+    <div id="body"></div>
+    <div id="tooltip" class="tooltip" style="opacity: 0"></div>
+
+    <div class="legend">
+      <table width="100%" border="0">
+        <tr>
+          <td align="center">(D)</td>
+          <td>
+            <i class="fab fa-google" style="color: var(--color-yellow)"></i>
+            &nbsp; Google Dork, for more information:
+            <a
+              href="https://en.wikipedia.org/wiki/Google_hacking"
+              target="_blank"
+              >Google Hacking</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td align="center">(R)</td>
+          <td>
+            <i class="fas fa-users" style="color: var(--color-yellow)"></i>
+            &nbsp; Requires registration
+          </td>
+        </tr>
+        <tr>
+          <td align="center">(M)</td>
+          <td>
+            <i class="fas fa-link" style="color: var(--color-yellow)"></i>
+            &nbsp; Provides URL with a search query
+          </td>
+        </tr>
+        <tr>
+          <td align="center">(T)</td>
+          <td>
+            <i class="fas fa-tools" style="color: var(--color-yellow)"></i>
+            &nbsp; The tool has to be set up on a local device
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="footer" align="middle">
+      <p align="center">
+        <a class="gh" href="https://github.com/ss-o">ss-o</a>
+      </p>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

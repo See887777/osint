@@ -1,12 +1,12 @@
-const test = require("node:test");
-const assert = require("node:assert/strict");
+import { test } from "node:test";
+import assert from "node:assert/strict";
 
-const {
+import {
   collapseNode,
   normalizeNodeDepths,
   initializeRoot,
   toggle,
-} = require("../public/js/tree-utils");
+} from "../src/tree-utils.js";
 
 test("collapseNode collapses children recursively", () => {
   const tree = {
