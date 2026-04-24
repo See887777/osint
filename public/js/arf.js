@@ -132,7 +132,7 @@ if (typeof d3 !== "undefined") {
   var treeUtils = typeof arfTreeUtils !== "undefined" ? arfTreeUtils : null;
   if (!treeUtils) {
     throw new Error(
-      "arfTreeUtils must be loaded before arf.js. Ensure tree-utils.js script tag appears before arf.js in your HTML."
+      "arfTreeUtils must be loaded before arf.js. Ensure tree-utils.js script tag appears before arf.js in your HTML.",
     );
   }
 
