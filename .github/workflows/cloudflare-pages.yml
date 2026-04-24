@@ -53,12 +53,14 @@ jobs:
           node-version: "lts/*"
           cache: "pnpm"
       - name: "🏗  Prepare"
-        run: pnpm install --frozen-lockfile --prod
+        run: |
+          pnpm install --frozen-lockfile
+          pnpm build
       - name: "🚀 Publish"
         uses: cloudflare/pages-action@f0a1cd58cd66095dee69bfa18fa5efd1dde93bca # v1.5.0
         with:
           projectName: "osint-framework"
-          directory: "public"
+          directory: "dist"
           apiToken: ${{ secrets.CF_PAGES_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
