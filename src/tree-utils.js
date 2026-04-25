@@ -6,12 +6,6 @@ export function collapseNode(d) {
   }
 }
 
-export function normalizeNodeDepths(nodes, spacing) {
-  nodes.forEach(function (d) {
-    d.y = d.depth * spacing;
-  });
-}
-
 export function initializeRoot(rootNode, canvasHeight) {
   rootNode.x0 = canvasHeight / 2;
   rootNode.y0 = 0;
@@ -25,4 +19,26 @@ export function toggle(d) {
     d.children = d._children;
     d._children = null;
   }
+}
+
+export function collapseExceptPath(rootNode, targetNode) {
+  const onPath = new Set();
+  let cursor = targetNode;
+  while (cursor) {
+    onPath.add(cursor);
+    cursor = cursor.parent;
+  }
+
+  function walk(d) {
+    if (!d.children) return;
+    d.children.forEach((child) => {
+      if (onPath.has(child)) {
+        walk(child);
+      } else {
+        collapseNode(child);
+      }
+    });
+  }
+
+  walk(rootNode);
 }

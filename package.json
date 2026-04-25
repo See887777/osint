@@ -7,7 +7,7 @@
   "scripts": {
     "clean": "pnpm exec rm -rf node_modules dist pnpm-lock.yaml",
     "fmt": "trunk fmt",
-    "dev": "vite",
+    "dev": "vite --port 8787 --host 0.0.0.0",
     "build": "vite build",
     "preview": "vite preview",
     "check": "trunk check",
@@ -15,7 +15,7 @@
     "test:coverage": "node --test --experimental-test-coverage"
   },
   "engines": {
-    "node": ">=22.0.0",
+    "node": ">=24.0.0",
     "pnpm": ">=10.0.0"
   },
   "dependencies": {
