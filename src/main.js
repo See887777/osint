@@ -213,6 +213,66 @@ function update(source) {
 
   g.selectAll("g.node").classed("node--on-path", (d) => !!d.children);
 
+  if (!manualMode && discoveryComplete) {
+    clearTimeout(fitTimer);
+    fitTimer = setTimeout(() => fitToView(true), duration);
+  }
+}
+sition()
+    .duration(duration)
+    .attr("transform", (d) => `translate(${source.y},${source.x})`)
+    .remove();
+
+  nodeExit.select("circle").attr("r", 1e-6);
+  nodeExit.select("text").style("fill-opacity", 1e-6);
+
+  // Links
+  const link = g.selectAll("path.link").data(links, (d) => d.target.id);
+
+  const linkEnter = link
+    .enter()
+    .insert("path", "g")
+    .attr("class", "link")
+    .attr("d", (d) => {
+      const o = { x: source.x0, y: source.y0 };
+      return d3
+        .linkHorizontal()
+        .x((d) => d.y)
+        .y((d) => d.x)({ source: o, target: o });
+    });
+
+  link
+    .merge(linkEnter)
+    .transition()
+    .duration(duration)
+    .attr(
+      "d",
+      d3
+        .linkHorizontal()
+        .x((d) => d.y)
+        .y((d) => d.x),
+    );
+
+  link
+    .exit()
+    .transition()
+    .duration(duration)
+    .attr("d", (d) => {
+      const o = { x: source.x, y: source.y };
+      return d3
+        .linkHorizontal()
+        .x((d) => d.y)
+        .y((d) => d.x)({ source: o, target: o });
+    })
+    .remove();
+
+  nodes.forEach((d) => {
+    d.x0 = d.x;
+    d.y0 = d.y;
+  });
+
+  g.selectAll("g.node").classed("node--on-path", (d) => !!d.children);
+
   if (!manualMode) {
     clearTimeout(fitTimer);
     fitTimer = setTimeout(() => fitToView(true), duration);
