@@ -22,6 +22,13 @@
           #3) With great power comes great responsibility.
 ```
 
+## Branching Strategy
+
+- **`main`**: Production branch. Contains stable, released code.
+  - _Rules_: No direct commits. Pull requests only from `next`.
+- **`next`**: Development branch. Integration for new features and bug fixes.
+  - _Rules_: No direct commits for major features. Pull requests from `feature-*` or `bug-*` branches.
+
 ## Development
 
 - [Propose](https://github.com/digital-clouds/osint/issues/new) the resources
