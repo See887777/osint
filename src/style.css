@@ -238,3 +238,77 @@ a:hover {
       drop-shadow(0 0 3px var(--accent));
   }
 }
+
+#intro-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  background-color: var(--bg);
+  cursor: pointer;
+  transition:
+    opacity 1.5s ease-out,
+    visibility 1.5s;
+}
+.lock-ring {
+  animation: pulse-ring 2s infinite alternate;
+}
+@keyframes pulse-ring {
+  from {
+    stroke-width: 1;
+  }
+  to {
+    stroke-width: 4;
+  }
+}
+.intro-text {
+  color: var(--accent-2);
+  margin-top: 20px;
+  font-family: monospace;
+  letter-spacing: 2px;
+}
+
+#body svg {
+  opacity: 0;
+  transform: scale(0.8);
+  transition:
+    opacity 1.5s ease-in,
+    transform 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+#body svg.revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.controls-overlay {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 50;
+}
+.search-box {
+  background: rgba(20, 20, 30, 0.8);
+  border: 1px solid var(--accent);
+  border-radius: 20px;
+  padding: 5px 15px;
+  display: flex;
+  align-items: center;
+  color: var(--text);
+  backdrop-filter: blur(4px);
+}
+.search-box input {
+  background: none;
+  border: none;
+  color: white;
+  margin-left: 10px;
+  outline: none;
+  width: 150px;
+}
