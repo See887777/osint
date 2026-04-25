@@ -138,11 +138,6 @@
               "url": "https://github.com/m4ll0k/infoga"
             },
             {
-              "name": "Omail verifier",
-              "type": "url",
-              "url": "https://omail.io/verifier.html"
-            },
-            {
               "name": "Skymem",
               "type": "url",
               "url": "https://www.skymem.info/"
@@ -306,7 +301,7 @@
             {
               "name": "Whois ARIN",
               "type": "url",
-              "url": "https://whois.arin.net/ui/advanced.jsp"
+              "url": "https://whois.arin.net/ui/query.do"
             },
             {
               "name": "DNSstuff",
@@ -641,7 +636,7 @@
             {
               "name": "AlienVault Open Threat Exchange",
               "type": "url",
-              "url": "https://otx.alienvault.com/browse/pulses/"
+              "url": "https://otx.alienvault.com/"
             },
             {
               "name": "Malware Domain List",
@@ -810,11 +805,6 @@
               "name": "PubDB",
               "type": "url",
               "url": "https://pub-db.com/"
-            },
-            {
-              "name": "SimilarWeb",
-              "type": "url",
-              "url": "https://www.similarweb.com/"
             },
             {
               "name": "Website Outlook",
@@ -988,7 +978,7 @@
             {
               "name": "Burp Suite (T)",
               "type": "url",
-              "url": "https://portswigger.net/burp/"
+              "url": "https://portswigger.net/burp/communitydownload"
             },
             {
               "name": "IntelliTamper (T)",
@@ -1320,7 +1310,7 @@
             {
               "name": "Packet Total",
               "type": "url",
-              "url": "https://www.packettotal.com/"
+              "url": "https://packettotal.com/"
             }
           ],
           "name": "Network Analysis Tools",
@@ -1917,21 +1907,6 @@
                   "url": "https://twitterfall.com/"
                 },
                 {
-                  "name": "Twellow",
-                  "type": "url",
-                  "url": "https://www.twellow.com/splash/"
-                },
-                {
-                  "name": "BackTweets",
-                  "type": "url",
-                  "url": "https://backtweets.com/"
-                },
-                {
-                  "name": "Moz Profile Search",
-                  "type": "url",
-                  "url": "https://moz.com/followerwonk/bio/?q=zero%20day&l=us"
-                },
-                {
                   "name": "TweetDeck",
                   "type": "url",
                   "url": "https://tweetdeck.twitter.com/"
@@ -1974,16 +1949,6 @@
                       "name": "Tweepsect",
                       "type": "url",
                       "url": "https://tweepsect.com/"
-                    },
-                    {
-                      "name": "Followerwonk Analyze",
-                      "type": "url",
-                      "url": "https://moz.com/followerwonk/analyze"
-                    },
-                    {
-                      "name": "Followerwonk Compare",
-                      "type": "url",
-                      "url": "https://moz.com/followerwonk/compare"
                     },
                     {
                       "name": "Twitonomy",
@@ -2045,11 +2010,6 @@
                       "name": "Trendsmap",
                       "type": "url",
                       "url": "https://trendsmap.com/"
-                    },
-                    {
-                      "name": "TAGSExplorer",
-                      "type": "url",
-                      "url": "https://tags.hawksey.info/tagsexplorer/"
                     }
                   ],
                   "name": "Hashtag",
@@ -2107,11 +2067,6 @@
                   "url": "https://www.heavy.ai/demos/tweetmap"
                 },
                 {
-                  "name": "Harvard Map",
-                  "type": "url",
-                  "url": "https://worldmap.harvard.edu/tweetmap/"
-                },
-                {
                   "name": "One Million Tweet Map",
                   "type": "url",
                   "url": "https://onemilliontweetmap.com/"
@@ -2138,15 +2093,11 @@
             {
               "children": [
                 {
-                  "name": "All My Tweets",
-                  "type": "url",
-                  "url": "https://www.allmytweets.net/connect/"
-                },
-                {
                   "name": "Deadbird",
                   "type": "url",
                   "url": "https://deadbird.site/"
                 },
+
                 {
                   "name": "Spoonbill",
                   "type": "url",
@@ -2471,11 +2422,6 @@
               "name": "My Registry",
               "type": "url",
               "url": "https://www.myregistry.com/"
-            },
-            {
-              "name": "Bed, Bath, & Beyond Gift Registry",
-              "type": "url",
-              "url": "https://www.bedbathandbeyond.com/store/giftregistry/registry_search_guest.jsp"
             },
             {
               "name": "The Bump",
@@ -2958,11 +2904,6 @@
           "url": "https://enigma.com/our-data/"
         },
         {
-          "name": "The World Bank Open Data Catalog",
-          "type": "url",
-          "url": "https://datacatalog.worldbank.org/"
-        },
-        {
           "name": "BRB Public Records",
           "type": "url",
           "url": "https://www.brbpub.com/"
@@ -3203,8 +3144,9 @@
             {
               "name": "VinCheck",
               "type": "url",
-              "url": "https://www.nicb.org/theft_and_fraud_awareness/vincheck"
+              "url": "https://www.nicb.org/vincheck"
             },
+
             {
               "name": "TRAVIC - Public Transportation Tracking",
               "type": "url",
@@ -3483,12 +3425,8 @@
           "url": "https://openstreetcam.org/"
         },
         {
-          "name": "Dronetheworld",
-          "type": "url",
-          "url": "https://www.dronetheworld.com/"
-        },
-        {
           "name": "Travel by Drone",
+
           "type": "url",
           "url": "https://travelbydrone.com/"
         },
@@ -4018,14 +3956,10 @@
               "name": "Verification Handbook",
               "type": "url",
               "url": "https://verificationhandbook.com/"
-            },
-            {
-              "name": "Verification Junkie",
-              "type": "url",
-              "url": "https://verificationjunkie.com/"
             }
           ],
           "name": "Fact Checking",
+
           "type": "folder"
         }
       ],
@@ -4489,14 +4423,10 @@
               "name": "Core.onion",
               "type": "url",
               "url": "https://eqt5g4fuenphqinx.onion/"
-            },
-            {
-              "name": "OnionTree",
-              "type": "url",
-              "url": "https://onionltd.github.io/"
             }
           ],
           "name": "TOR Directories",
+
           "type": "folder"
         },
         {
@@ -4523,12 +4453,8 @@
         {
           "children": [
             {
-              "name": "Blocktrail",
-              "type": "url",
-              "url": "https://www.blocktrail.com/BTC"
-            },
-            {
               "name": "Blockchain.com Explorer",
+
               "type": "url",
               "url": "https://www.blockchain.com/explorer"
             },
@@ -4734,14 +4660,10 @@
               "name": "SpiderMonkey (T)",
               "type": "url",
               "url": "https://spidermonkey.dev/"
-            },
-            {
-              "name": "Kahu Revelo (T)",
-              "type": "url",
-              "url": "https://www.kahusecurity.com/tools/"
             }
           ],
           "name": "Javascript",
+
           "type": "folder"
         },
         {
@@ -4779,14 +4701,9 @@
               "type": "folder"
             },
             {
-              "children": [
-                {
-                  "name": "Kahu Converter Utilities (T)",
-                  "type": "url",
-                  "url": "https://www.kahusecurity.com/tools/"
-                }
-              ],
+              "children": [],
               "name": "Windows",
+
               "type": "folder"
             },
             {
@@ -4945,10 +4862,11 @@
               "url": "https://www.virtualbox.org/"
             },
             {
-              "name": "Buscador OS (T)",
+              "name": "IntelTechniques Tools",
               "type": "url",
-              "url": "https://inteltechniques.com/buscador/index.html"
+              "url": "https://inteltechniques.com/tools.html"
             },
+
             {
               "name": "Kali Linux OS (T)",
               "type": "url",
@@ -4960,12 +4878,8 @@
               "url": "https://www.parrotsec.org/"
             },
             {
-              "name": "Microsoft Edge Development OS VMs (T)",
-              "type": "url",
-              "url": "https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/"
-            },
-            {
               "name": "Subgraph OS (T)",
+
               "type": "url",
               "url": "https://subgraph.com/index.en.html"
             },
@@ -5007,12 +4921,8 @@
         {
           "children": [
             {
-              "name": "Decalage Malware Search",
-              "type": "url",
-              "url": "https://decalage.info/en/mwsearch"
-            },
-            {
               "name": "VirusShare.com",
+
               "type": "url",
               "url": "https://virusshare.com/"
             },
@@ -5342,7 +5252,7 @@
             {
               "name": "Mitre TTPs",
               "type": "url",
-              "url": "https://attack.mitre.org/wiki/All_Techniques"
+              "url": "https://attack.mitre.org/techniques/"
             }
           ],
           "name": "TTPs",

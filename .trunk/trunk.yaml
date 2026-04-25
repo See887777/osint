@@ -8,12 +8,7 @@ plugins:
       uri: https://github.com/trunk-io/plugins
 lint:
   disabled:
-    - renovate
     - yamllint
-  ignore:
-    - linters: [prettier]
-      paths:
-        - "public/css/**"
   enabled:
     - checkov@3.2.524
     - osv-scanner@2.3.5

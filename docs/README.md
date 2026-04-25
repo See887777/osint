@@ -31,38 +31,62 @@
 
 ## Development
 
-- [Propose](https://github.com/digital-clouds/osint/issues/new) the resources
-- Links located at [/public/arf.json](/public/arf.json)
-  - [autochecked URLs](https://github.com/digital-clouds/osint/issues/49) are broken/dead and need to be removed/adjusted/fixed.
-  - verified/working URLs, but [ignored](https://github.com/digital-clouds/osint/blob/main/.lycheeignore) from checking, because of its specefic behaviour/response.
-- Dependencies: [git](https://github.com/git-guides/install-git), [pnpm](https://pnpm.io/installation)
+- [Propose](https://github.com/digital-clouds/osint/issues/new) new resources via GitHub issues.
+- The primary dataset is located at [`/public/arf.json`](/public/arf.json).
+  - [Autochecked URLs](https://github.com/digital-clouds/osint/issues/49) are continuously verified; broken or dead links need to be removed, adjusted, or fixed.
+  - Known working URLs that respond atypically to bots are ignored in [`.github/lychee.toml`](/.github/lychee.toml) to prevent false positives.
+- The project is built using **Vite**, **D3 v7**, and **Vanilla JavaScript** (ESM).
+- Dependencies: [Node.js](https://nodejs.org/) (>=22), [pnpm](https://pnpm.io/installation) (>=10).
 
-Clone and install:
+### Local Setup
 
-```shell
-git clone https://github.com/digital-clouds/osint; cd osint
-pnpm i
-```
-
-Check or lint files:
+Clone and install dependencies:
 
 ```shell
-pnpm fmt
-pnpm check
+git clone https://github.com/digital-clouds/osint
+cd osint
+pnpm install
 ```
 
-> Run: `pnpm trunk -h` to see available options.
-
-Start server:
+Start the Vite development server:
 
 ```shell
 pnpm dev
 ```
 
-Visit http://0.0.0.0:8787 or use keys to select required option:
+> The server will typically start at `http://localhost:5173`. Open this URL in your browser to view the framework.
 
-- <kbd>b</kbd> `open a browser`
-- <kbd>d</kbd> `open Devtools`
-- <kbd>l</kbd> `turn on local mode`
-- <kbd>c</kbd> `clear console`
-- <kbd>x</kbd> `to exit`
+### Linting and Formatting
+
+This project uses [Trunk](https://trunk.io/) to manage linting and formatting.
+
+```shell
+# Format files
+pnpm fmt
+
+# Run all linters and checks
+pnpm check
+```
+
+> Run `pnpm exec trunk check --help` to see available options.
+
+### Testing
+
+The project uses the native Node.js test runner (`node:test`).
+
+```shell
+# Run tests
+pnpm test
+
+# Run tests with coverage
+pnpm test:coverage
+```
+
+### Build for Production
+
+```shell
+pnpm build
+pnpm preview
+```
+
+> This generates a `dist/` directory optimized for deployment.

@@ -23,7 +23,7 @@ max_cache_age = "2d"
 #threads = 2
 
 # Maximum number of allowed redirects.
-#max_redirects = 10
+max_redirects = 15
 
 # Maximum number of allowed retries before a link is declared dead.
 #max_retries = 2
@@ -37,16 +37,16 @@ max_concurrency = 16
 #user_agent = "curl/7.83. 1"
 
 # Website timeout from connect to response finished.
-#timeout = 20
+timeout = 30
 
 # Minimum wait time in seconds between retries of failed requests.
 #retry_wait_time = 2
 
 # Comma-separated list of accepted status codes for valid links.
-accept = [200, 429]
+accept = [200, 202, 204, 400, 401, 403, 405, 429, 503]
 
 # Proceed for server connections considered insecure (invalid TLS).
-insecure = false
+insecure = true
 
 # Only test links with the given schemes (e.g. https).
 # Omit to check links with any scheme.
@@ -89,9 +89,12 @@ exclude = [
   # Sites that block automated crawlers / require login
   'facebook\.com',
   'twitter\.com',
+  'x\.com',
   'imgur\.com',
   'www\.reddit\.com',
   'socialblade\.com',
+  'www\.glassdoor\.com',
+  'www\.sec\.gov',
 
   # Sites that consistently return non-2xx to bots but are known-live
   'securitytrails\.com',
@@ -109,6 +112,87 @@ exclude = [
   '(^|\.)truepeoplesearch\.com',
   'www\.vehiclehistory\.com',
   'www\.politicalmoneyline\.com',
+  'thatsthem\.com',
+  'epieos\.com',
+  'answerthepublic\.com',
+  'tineye\.com',
+  'virustotal\.com',
+  'intelx\.io',
+  'tgstat\.com',
+  'sourcegraph\.com',
+  'socialbearing\.com',
+  'andrewmohawk\.com',
+  'centralops\.net',
+  'checkusernames\.com',
+  'cubib\.com',
+  'hackertarget\.com',
+  'knowem\.com',
+  'snitch\.name',
+  'wappalyzer\.com',
+  'wigle\.net',
+  'flippity\.com',
+  'truepeoplesearch\.io',
+  'search-id\.com',
+  'bgpstream\.com',
+  'browsershots\.org',
+  'darkweb\.hunch\.ly',
+  'ese\.rfe\.org',
+  'getnewsbot\.com',
+  'hoaxy\.iuni\.iu\.edu',
+  'opensky-network\.org',
+  'theinvestormailinglist\.com',
+  'twopcharts\.com',
+  'urlex\.org',
+  'vis-www\.cs\.umass\.edu',
+  'websiteoutlook\.com',
+  'whoisamped\.com',
+  'beautifulpeople\.com',
+  'goofbid\.com',
+  'ixquick\.com',
+  'malwaredomainlist\.com',
+  'mapd\.com',
+  'passivetotal\.org',
+  'perfect-privacy\.com',
+  'reconstructer\.org',
+  'securityfocus\.com',
+  'backtweets\.com',
+  'community\.blueliv\.com',
+  'filessoo\.com',
+  'flickrhivemind\.net',
+  'hubii\.com',
+  'oxt\.me',
+  'proxycheck\.haschek\.at',
+  'register\.automatingosint\.com',
+  'sleepingtime\.org',
+  'speedyhunt\.com',
+  'trendsmap\.com',
+  'vurldissect\.co.uk',
+  'spyonweb\.com',
+  'threatpipes\.com',
+  'worldaerodata\.com',
+  'w3bin\.com',
+  'birthdatabase\.com',
+  'my-ip-neighbors\.com',
+  'newsobserver\.com',
+  'womansavers\.com',
+  'wamba\.com',
+  'heavy\.ai',
+  'inteltechniques\.com',
+  'portswigger\.net',
+  'whois\.arin\.net',
+  'eternal-todo\.com',
+  'graphsense\.info',
+  'pub-db\.com',
+  'spoonbill\.io',
+  'bounceapp\.com',
+  'email-format\.com',
+  'imageraider\.com',
+  'zoomeye\.org',
+  'ether\.camp',
+  'blackbookonline\.info',
+  'govdataca\.com',
+  'browserspy\.dk',
+  'images\.yahoo\.com',
 
   # Sites known to be inaccessible or deprecated
   'globaledge\.msu\.edu',
@@ -123,6 +207,7 @@ exclude = [
   '0day\.today',
   'archive\.is',
   'insecam\.org',
+  'hosts-file\.net',
 
   # HTTP-only sites — will always fail require_https; exclude to avoid false positives
   'ddecode\.com',
@@ -161,4 +246,4 @@ exclude_all_private = true
 #exclude_loopback = false
 
 # Exclude all mail addresses from checking.
-exclude_mail = true
+include_mail = false

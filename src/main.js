@@ -1,5 +1,10 @@
 import * as d3 from "d3";
-import { collapseNode, normalizeNodeDepths, toggle } from "./tree-utils.js";
+import {
+  collapseNode,
+  collapseExceptPath,
+  initializeRoot,
+  toggle,
+} from "./tree-utils.js";
 
 let width,
   height,
@@ -7,7 +12,11 @@ let width,
   duration = 750,
   root;
 
-const tree = d3.tree();
+let manualMode = false;
+let fitTimer = null;
+let focusMode = true;
+
+const tree = d3.tree().nodeSize([24, 220]);
 const svg = d3.select("#body").append("svg");
 const g = svg.append("g");
 const tooltip = d3.select("#tooltip");
@@ -17,6 +26,7 @@ const zoom = d3
   .zoom()
   .scaleExtent([0.1, 3])
   .on("zoom", (event) => {
+    if (event.sourceEvent) manualMode = true;
     g.attr("transform", event.transform);
   });
 
@@ -29,16 +39,30 @@ function updateSize() {
 }
 
 window.addEventListener("resize", () => {
+  manualMode = false;
   updateSize();
   if (root) update(root);
+});
+
+const modeBtn = document.getElementById("mode-btn");
+modeBtn.addEventListener("click", () => {
+  focusMode = !focusMode;
+  modeBtn.textContent = focusMode ? "Focus" : "Multi";
+  modeBtn.classList.toggle("is-active", !focusMode);
+});
+
+const legendBtn = document.getElementById("legend-btn");
+const legendEl = document.querySelector(".legend");
+legendBtn.addEventListener("click", () => {
+  const visible = legendEl.classList.toggle("is-visible");
+  legendBtn.classList.toggle("is-active", visible);
 });
 
 updateSize();
 
 d3.json("/arf.json").then((data) => {
   root = d3.hierarchy(data);
-  root.x0 = height / 2;
-  root.y0 = 0;
+  initializeRoot(root, height);
 
   if (root.children) {
     root.children.forEach(collapseNode);
@@ -47,11 +71,24 @@ d3.json("/arf.json").then((data) => {
   update(root);
 });
 
+function fitToView(animate = true) {
+  const bbox = g.node().getBBox();
+  if (!bbox.width || !bbox.height) return;
+  const padding = 40;
+  const k = Math.min(
+    (width - padding * 2) / bbox.width,
+    (height - padding * 2) / bbox.height,
+  );
+  const tx = width / 2 - (bbox.x + bbox.width / 2) * k;
+  const ty = height / 2 - (bbox.y + bbox.height / 2) * k;
+  const target = d3.zoomIdentity.translate(tx, ty).scale(k);
+  const sel = animate ? svg.transition("fit").duration(400) : svg;
+  sel.call(zoom.transform, target);
+}
+
 function update(source) {
   const nodes = tree(root).descendants().reverse();
   const links = tree(root).links();
-
-  normalizeNodeDepths(nodes, 180);
 
   // Nodes
   const node = g.selectAll("g.node").data(nodes, (d) => d.id || (d.id = ++i));
@@ -62,6 +99,10 @@ function update(source) {
     .attr("class", "node")
     .attr("transform", (d) => `translate(${source.y0},${source.x0})`)
     .on("click", (event, d) => {
+      manualMode = false;
+      if (focusMode && d._children) {
+        collapseExceptPath(root, d);
+      }
       toggle(d);
       update(d);
     });
@@ -69,7 +110,7 @@ function update(source) {
   nodeEnter
     .append("circle")
     .attr("r", 1e-6)
-    .style("fill", (d) => (d._children ? "black" : "var(--color-yellow)"));
+    .style("fill", (d) => (d._children ? "var(--bg)" : "var(--accent)"));
 
   nodeEnter
     .append("a")
@@ -111,7 +152,7 @@ function update(source) {
   nodeUpdate
     .select("circle")
     .attr("r", 6)
-    .style("fill", (d) => (d._children ? "black" : "var(--color-yellow)"));
+    .style("fill", (d) => (d._children ? "var(--bg)" : "var(--accent)"));
 
   nodeUpdate.select("text").style("fill-opacity", 1);
 
@@ -169,61 +210,11 @@ function update(source) {
     d.x0 = d.x;
     d.y0 = d.y;
   });
-}
 
-// Search Functionality
-const searchInput = document.getElementById("search-input");
-const searchBtn = document.getElementById("search-btn");
+  g.selectAll("g.node").classed("node--on-path", (d) => !!d.children);
 
-function performSearch() {
-  const query = searchInput.value.toLowerCase().trim();
-  if (!query) return;
-
-  // Reset highlights
-  g.selectAll(".node").classed("node--highlighted", false);
-
-  let matchFound = false;
-
-  // Expand tree to find matches
-  root.descendants().forEach((d) => {
-    if (d.data.name && d.data.name.toLowerCase().includes(query)) {
-      // Expand all parents
-      let parent = d.parent;
-      while (parent) {
-        if (parent._children) {
-          parent.children = parent._children;
-          parent._children = null;
-        }
-        parent = parent.parent;
-      }
-      matchFound = true;
-    }
-  });
-
-  if (matchFound) {
-    update(root);
-    // Highlight nodes
-    setTimeout(() => {
-      const matches = g
-        .selectAll(".node")
-        .filter(
-          (d) => d.data.name && d.data.name.toLowerCase().includes(query),
-        );
-      matches.classed("node--highlighted", true);
-
-      // Zoom to first match
-      const firstMatch = matches.datum();
-      if (firstMatch) {
-        const transform = d3.zoomIdentity
-          .translate(width / 2 - firstMatch.y, height / 2 - firstMatch.x)
-          .scale(1.2);
-        svg.transition().duration(750).call(zoom.transform, transform);
-      }
-    }, duration);
+  if (!manualMode) {
+    clearTimeout(fitTimer);
+    fitTimer = setTimeout(() => fitToView(true), duration);
   }
 }
-
-searchBtn.addEventListener("click", performSearch);
-searchInput.addEventListener("keypress", (e) => {
-  if (e.key === "Enter") performSearch();
-});

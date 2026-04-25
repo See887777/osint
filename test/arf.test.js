@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 
 import {
   collapseNode,
-  normalizeNodeDepths,
+  collapseExceptPath,
   initializeRoot,
   toggle,
 } from "../src/tree-utils.js";
@@ -36,17 +36,6 @@ test("collapseNode leaves nodes without children unchanged", () => {
   collapseNode(node);
 
   assert.deepEqual(node, { name: "leaf" });
-});
-
-test("normalizeNodeDepths applies spacing to each node depth", () => {
-  const nodes = [{ depth: 0 }, { depth: 1 }, { depth: 3 }];
-
-  normalizeNodeDepths(nodes, 120);
-
-  assert.deepEqual(
-    nodes.map((node) => node.y),
-    [0, 120, 360],
-  );
 });
 
 test("initializeRoot sets x0 and y0", () => {
@@ -87,4 +76,49 @@ test("toggle expands node with hidden children", () => {
 
   assert.deepEqual(node.children, [{ name: "child" }]);
   assert.strictEqual(node._children, null);
+});
+
+test("collapseExceptPath collapses siblings of ancestors", () => {
+  const target = {
+    children: null,
+    _children: [{ name: "leaf" }],
+    parent: null,
+  };
+  const A = { children: [target], _children: null, parent: null };
+  const B = { children: [{ name: "b-leaf" }], _children: null, parent: null };
+  const root = { children: [A, B], _children: null, parent: null };
+  A.parent = root;
+  B.parent = root;
+  target.parent = A;
+
+  collapseExceptPath(root, target);
+
+  assert.ok(Array.isArray(A.children), "A (on path) stays expanded");
+  assert.strictEqual(B.children, null, "B (off path) is collapsed");
+  assert.ok(Array.isArray(B._children), "B._children populated after collapse");
+  assert.strictEqual(target.children, null, "target itself is unchanged");
+  assert.ok(Array.isArray(target._children), "target._children intact");
+});
+
+test("collapseExceptPath leaves single-path ancestor chain open", () => {
+  const target = {
+    children: null,
+    _children: [{ name: "leaf" }],
+    parent: null,
+  };
+  const A = { children: [target], _children: null, parent: null };
+  const root = { children: [A], _children: null, parent: null };
+  A.parent = root;
+  target.parent = A;
+
+  collapseExceptPath(root, target);
+
+  assert.ok(Array.isArray(root.children), "root stays expanded");
+  assert.ok(Array.isArray(A.children), "A stays expanded");
+  assert.strictEqual(
+    target.children,
+    null,
+    "target unchanged (still collapsed)",
+  );
+  assert.ok(Array.isArray(target._children), "target._children intact");
 });

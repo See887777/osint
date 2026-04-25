@@ -1,3 +1,8 @@
+# Claude
+CLAUDE.md
+.claude/
+docs/superpowers/
+
 # vendor packages #
 ######################
 package-lock.json
