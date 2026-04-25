@@ -6,6 +6,7 @@ import {
   collapseExceptPath,
   initializeRoot,
   toggle,
+  expandToNodes,
 } from "../src/tree-utils.js";
 
 test("collapseNode collapses children recursively", () => {
@@ -121,4 +122,17 @@ test("collapseExceptPath leaves single-path ancestor chain open", () => {
     "target unchanged (still collapsed)",
   );
   assert.ok(Array.isArray(target._children), "target._children intact");
+});
+
+test("expandToNodes expands parents of target nodes", () => {
+  const target = { _children: null, children: null };
+  const parent = { _children: [target], children: null };
+  const root = { _children: [parent], children: null };
+  target.parent = parent;
+  parent.parent = root;
+
+  expandToNodes([target]);
+
+  assert.ok(Array.isArray(root.children));
+  assert.ok(Array.isArray(parent.children));
 });
