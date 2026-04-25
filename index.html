@@ -91,29 +91,60 @@
     </svg>
 
     <div id="intro-layer">
-      <svg id="lock-icon" viewBox="0 0 100 100" width="150" height="150">
+      <svg id="lock-icon" viewBox="0 0 200 200" width="250" height="250">
+        <!-- Outer rotating ring -->
         <circle
-          cx="50"
-          cy="50"
-          r="40"
+          cx="100"
+          cy="100"
+          r="90"
           stroke="var(--accent-2)"
           stroke-width="2"
+          stroke-dasharray="20 10"
           fill="none"
-          class="lock-ring"
+          class="vault-ring-outer"
         />
-        <rect
-          x="35"
-          y="40"
-          width="30"
-          height="30"
-          rx="3"
-          fill="var(--accent)"
-        />
-        <path
-          d="M 40 40 V 30 A 10 10 0 0 1 60 30 V 40"
-          fill="none"
+        <!-- Middle counter-rotating segmented ring -->
+        <circle
+          cx="100"
+          cy="100"
+          r="70"
           stroke="var(--accent)"
           stroke-width="4"
+          stroke-dasharray="40 20"
+          fill="none"
+          class="vault-ring-middle"
+        />
+        <!-- Inner spinning reticle -->
+        <g class="vault-reticle">
+          <circle
+            cx="100"
+            cy="100"
+            r="45"
+            stroke="var(--accent-2)"
+            stroke-width="1"
+            stroke-dasharray="2 4"
+            fill="none"
+          />
+          <path
+            d="M 100 45 V 55 M 100 145 V 155 M 45 100 H 55 M 145 100 H 155"
+            stroke="var(--accent-2)"
+            stroke-width="2"
+          />
+        </g>
+        <!-- Glowing central core -->
+        <circle
+          cx="100"
+          cy="100"
+          r="15"
+          fill="var(--accent)"
+          class="vault-core"
+        />
+        <circle
+          cx="100"
+          cy="100"
+          r="10"
+          fill="white"
+          class="vault-core-inner"
         />
       </svg>
       <div class="intro-text">INITIATING DISCOVERY</div>

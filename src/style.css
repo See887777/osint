@@ -78,13 +78,21 @@ body {
 
 .node text {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 14px;
+  font-weight: 600;
   fill: var(--fg);
   stroke: none;
+  text-shadow:
+    0 0 4px rgba(0, 0, 0, 0.9),
+    0 0 8px rgba(0, 0, 0, 0.8),
+    0 0 2px var(--bg);
 }
 
 .node:hover text {
   fill: var(--accent);
+  text-shadow:
+    0 0 8px var(--accent),
+    0 0 2px var(--bg);
 }
 
 path.link {
@@ -256,15 +264,50 @@ a:hover {
     opacity 1.5s ease-out,
     visibility 1.5s;
 }
-.lock-ring {
-  animation: pulse-ring 2s infinite alternate;
+.vault-ring-outer {
+  transform-origin: center;
+  animation: vault-spin-cw 8s linear infinite;
 }
-@keyframes pulse-ring {
+.vault-ring-middle {
+  transform-origin: center;
+  animation: vault-spin-ccw 6s linear infinite;
+}
+.vault-reticle {
+  transform-origin: center;
+  animation: vault-spin-cw 3s linear infinite;
+}
+.vault-core {
+  animation: vault-pulse 2s ease-in-out infinite alternate;
+  filter: drop-shadow(0 0 10px var(--accent));
+}
+.vault-core-inner {
+  animation: vault-pulse 1s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes vault-spin-cw {
   from {
-    stroke-width: 1;
+    transform: rotate(0deg);
   }
   to {
-    stroke-width: 4;
+    transform: rotate(360deg);
+  }
+}
+@keyframes vault-spin-ccw {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+@keyframes vault-pulse {
+  from {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.1);
   }
 }
 .intro-text {
